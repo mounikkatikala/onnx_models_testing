@@ -1,6 +1,8 @@
 import onnxruntime as ort
 
+#creating onnx session for "quant_dequant"
 session = ort.InferenceSession("quant_dequant.onnx")
+
 input_name = session.get_inputs()[0].name
 output_name = session.get_outputs()[0].name
 
