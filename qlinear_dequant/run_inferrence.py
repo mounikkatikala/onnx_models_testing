@@ -11,8 +11,6 @@ output_name = session.get_outputs()[0].name
 input_data = np.random.rand(1, 10000).astype(np.float32)  # Generate random FP32 input
 # input_data = np.array([[0.1, 0.1, 0.2, 0.3, 0.4, 0.2, 0.58, 0.7, 0.9, 0.111]], dtype=np.float32) # Generate random FP32 input
 
-
-
 # Measure latency
 num_runs = 10  # Number of runs for averaging
 start_time = time.time()
