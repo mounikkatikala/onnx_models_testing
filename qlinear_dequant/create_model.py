@@ -4,10 +4,10 @@ import onnx.numpy_helper as numpy_helper
 import numpy as np
 
 # Define input tensor (FP32)
-input_tensor = helper.make_tensor_value_info("input", onnx.TensorProto.FLOAT, [1, 10])
+input_tensor = helper.make_tensor_value_info("input", onnx.TensorProto.FLOAT, [1, 10000])
 
 # Define scale and zero point tensors
-scale = helper.make_tensor("scale", onnx.TensorProto.FLOAT, [], [0.1])  # Scale factor
+scale = helper.make_tensor("scale", onnx.TensorProto.FLOAT, [], [0.01])  # Scale factor
 zero_point = helper.make_tensor("zero_point", onnx.TensorProto.UINT8, [], [128])  # Zero point
 
 # Define QuantizeLinear node
@@ -25,7 +25,7 @@ dequant_node = helper.make_node(
 )
 
 # Define an output tensor
-output_tensor = helper.make_tensor_value_info("dequantized_output", onnx.TensorProto.FLOAT, [1, 10])
+output_tensor = helper.make_tensor_value_info("dequantized_output", onnx.TensorProto.FLOAT, [1, 10000])
 
 # Create the graph
 graph = helper.make_graph(
