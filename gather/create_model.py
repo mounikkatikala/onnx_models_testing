@@ -2,10 +2,10 @@ import onnx
 import numpy as np
 from onnx import helper, TensorProto
 
-# Define input tensor (2,3,4)
+# Define input tensor 
 input_tensor = helper.make_tensor_value_info("input", TensorProto.UINT32, [3, 3, 4])
 
-# Create a constant indices tensor [2,0]
+# Create a constant indices tensor 
 indices_data = np.array([[1, 2,0]], dtype=np.int64)
 indices_tensor = helper.make_tensor(
     name="indices",
@@ -39,7 +39,7 @@ dim1 =  indices_dims if axis_value == 1 else dim1.dim_value
 dim2 =  indices_dims if axis_value == 2 else dim2.dim_value   
 
 
-# Define output tensor (2,3,2) after Gather
+# Define output tensor 
 output_tensor = helper.make_tensor_value_info("output", TensorProto.UINT32, [dim0, dim1, dim2])
 
 
